@@ -7,7 +7,9 @@ class HousesController < ApplicationController
     @houses = House.all
   end
 
-  def show; end
+  def show; 
+    @comment = Comment.new
+  end
 
   def new
     @house = House.new

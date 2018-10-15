@@ -1,0 +1,20 @@
+<div class="col-md-12 house-comments">
+  <% @house.comments.order("created_at desc").each do |comment| %>
+    <div class="row">
+      <%= comment.content %>
+      <div class="col-md-12 d-flex justify-content-end form-footer">
+
+        <% if can_edit(comment) %>
+          <%= link_to "Delete", comment_path(comment), method: :delete %>
+          &nbsp;|&nbsp;	
+          <%= link_to "Edit", edit_comment_path(comment, house_id: @house.id)  %>
+        <% end %>
+       
+        <p class="text-muted ml-auto">
+          <%= comment.user.email %> at <%= date_format comment.created_at %>
+        </p>
+       
+      </div>
+    </div>
+  <% end %>
+</div>

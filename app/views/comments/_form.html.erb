@@ -1,0 +1,9 @@
+<%= form_for @comment do |form| %>
+  <%= form.hidden_field :house_id, value: @house.id %>
+  <div class="col-md-12">
+    <%= form.text_area :content, class: "form-control", placeholder: "Leave a comment"%>
+  </div>
+  <div class="col-md-12 d-flex justify-content-end form-footer">
+    <%= form.submit "Submit", class: "btn btn-outline-success"%>
+  </div>
+<% end %>

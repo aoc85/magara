@@ -36,4 +36,13 @@ module HousesHelper
   def owner?
     true if @house.user == current_user
   end
+
+
+  def can_edit(comment)
+    true if comment.user_id == current_user.id
+  end
+
+  def date_format(value)
+    value.strftime("%m/%d/%Y")
+  end
 end
